@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="StableToolBench">
+  <meta name="keywords" content="StableToolBench">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StableToolBench</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/modal.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/stabletoolbench.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+<!--            <img src="./static/images/stabletoolbench.svg" alt="favicon" style="width: 45px; height: auto;"> -->
+            StableToolBench</h1>
+            <h2 class="subtitle is-3 publication-subtitle">Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zhichengg.github.io/">Zhicheng Guo</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://adacheng.github.io/">Sijie Cheng</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+             Hao Wang<sup>3</sup>,</span>
+            <span class="author-block">
+              Shihao Liang<sup>4</sup>,</span>
+            <span class="author-block">
+              Yujia Qin<sup>1</sup></span><br>
+            <span class="author-block">
+              Peng Li<sup>1</sup>,</span>
+            <span class="author-block">
+              Zhiyuan Liu<sup>1</sup>,</span>
+            <span class="author-block">
+              Maosong Sun<sup>1</sup>,</span>
+            <span class="author-block" >
+              Yang Liu<sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua University</span>
+            <span class="author-block"><sup>2</sup>01.AI</span>
+            <span class="author-block"><sup>3</sup>Google</span>
+            <span class="author-block"><sup>4</sup>The University of Hong Kong</span>
+<!--             <span class="author-block"><sup>5</sup>Beijing National Research Center for Information Science and Technology</span>-->
+          </div>
+          <span class="author-block">{<a href="mailto:guo-zc21@mails.tsinghua.edu.cn">guo-zc21</a>,<a href="mailto:csj23@mails.tsinghua.edu.cn">csj23</a>}@mails.tsinghua.edu.cn</span>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.07714.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.07714"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zhichengg/StableToolBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1XUiCMA5NV359UGR-eknF0TcXORuR7RXj/view?pli=1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Cache Data</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="width: 81%">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large Language Models (LLMs) have witnessed remarkable advancements in recent years, prompting the exploration of tool learning, which integrates LLMs with external tools to address diverse real-world challenges. Assessing the capability of LLMs to utilise tools necessitates large-scale and stable benchmarks.
+            However, previous works relied on either hand-crafted online tools with limited scale, or large-scale real online APIs suffering from instability of API status. To address this problem, we introduce StableToolBench, a benchmark evolving from ToolBench, proposing a virtual API server and stable evaluation system. The virtual API server contains a caching system and API simulators which are complementary to alleviate the change in API status. Meanwhile, the stable evaluation system designs solvable pass and win rates using <code>GPT-4</code> as the automatic evaluator to eliminate the randomness during evaluation. Experimental results demonstrate the stability of StableToolBench, and further discuss the effectiveness of API simulators, the caching system, and the evaluation system.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Instability in ToolBench</h2>
+        <div class="content has-text-justified">
+          <p>
+            Benchmarks are designed to consistently evaluate the performance of various models over time.
+            To test this consistency of ToolBench, we reproduce the model performances and record any variations.
+
+            As depicted in Figure 1, a notable decline in the performance of all methods over time is observed, which raises concerns about the stability of ToolBench as a benchmark. Click <a href="#" id="openModal">here</a> to overview the detailed analysis of the impacts of API status and the evaluation system in ToolBench on stability of the benchmark.
+          </p>
+            <figure>
+              <img src="./static/images/real_comparison.jpg" alt="fig1" style="width: 50%; height: auto;">
+              <figcaption><b>Figure 1:</b> Comparison of performance (Pass Rate) reported in the paper and reproduced by us on the I1-Instruction group of ToolBench. </figcaption>
+            </figure>
+
+
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2 class="title is-3">Instability of API Status</h2>
+              <p>
+                ToolBench exihibits significant instability on the API status (Figure 1). This instability was primarily due to issues such as expired APIs, network issues, or failed authentication. Only 44.4% of API calls were successful, with the rest being mostly unavailable due to various errors, some not authorized, and others suffering from parsing errors and parameter changes.
+
+                This instability in API status led to considerable variability in model performance assessments and had a significant impact on the stability of the benchmark (Figure 2). When APIs failed or behaved unpredictably, it directly affected the tools' ability to function correctly and consistently, thereby impacting the effectiveness of the tools and the overall reliability of the benchmark
+              </p>
+              <div class="columns is-centered">
+                <div class="column is-half">
+                  <figure>
+                    <img src="./static/images/api_status_merged.jpg" alt="fig1" style="width: 100%; height: auto;">
+                    <figcaption>Figure 1: Statistics of API Status in ToolBench. Parsing errors are caused by post-processing errors of local API documentation, which have been solved in our benchmark.</figcaption>
+                  </figure>
+                </div>
+                <div class="column is-half">
+                  <figure>
+                    <img src="./static/images/real_solving_scores.jpg" alt="fig1" style="width: 70%; height: auto;">
+                    <figcaption>Figure 2: Solvable Pass Rate (SoPR) change when manually making APIs down on I1 Instruction.</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <h2 class="title is-3">Instability of Evaluation</h2>
+              <p>
+                The evaluation metrics used in ToolBench, such as Pass Rate (PR) and Win Rate (WR), are subject to randomness, particularly when dealing with tasks labeled as "unsolvable" or "unsure". This randomness contributes to inconsistencies in model evaluations. For example, despite using the same tasks, the results varied significantly between different strategies like Chain-of-Thought (CoT) and Depth First Search (DFS), and the discrepancy in evaluation was noted to be a problem.
+              </p>
+
+              <div class="columns is-centered">
+                <div class="column is-half">
+                  <figure>
+                    <img src="./static/images/PR.jpg" alt="fig1" style="width: 80%; height: auto;">
+                    <figcaption>Figure 3: Pass Rate evaluation in ToolBench.</figcaption>
+                  </figure>
+                </div>
+                <div class="column is-half">
+                  <figure>
+                    <img src="./static/images/eval_statistics.png" alt="fig1" style="width: 70%; height: auto;">
+                    <figcaption>Table 1: Statistics of evaluation. Experiments use <code>GPT-3.5-Turbo-0613</code> with CoT and DFS. S, US, and UE indicate solvable (solved), unsolvable (unsolved), and unsure. Pass and Win denote pass rate and win rate, respectively.</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="./static/js/modal.js"></script>
+
+          
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">StableToolBench</h2>
+        <div class="content has-text-justified">
+          <h3 class="title is-4">The Virtual API Server</h3>
+          <p>
+            To stabilise the API server, we propose to use the virtual API server. It comprises two primary components: a caching system and an API simulator. The caching system stores responses from all API calls, ensuring consistency and reducing latency. It's populated with data from both the training and test phases and continuously updated to maintain scalability and quality. The API simulator, powered by a large language model (<code>gpt-4-turbo</code>), simulates API responses that aren't in the cache or are unavailable. It utilizes documentation and real API call examples as few-shot prompts to ensure the simulated responses closely mimic real API behavior. Together, these components work under specific calling rules, initially checking the cache for a response before attempting a real API call and, if necessary, resorting to the simulated response. This integrated approach aims to balance stability and reality in API behaviors, significantly enhancing the benchmark's reliability and effectiveness.
+          </p>
+          <figure>
+            <img src="./static/images/main_figure.jpg" alt="fig1" style="width: 80%; height: auto;">
+            <figcaption><b>Figure 2:</b> The process of calling APIs in our proposed virtual API server. </figcaption>
+          </figure>
+        </div>
+
+
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4">The Stable Evaluation System</h3>
+          
+          <p>
+            <strong>Solvable Tasks Filtration.</strong> Since the solvablility of tasks in original ToolBench induces siginificant instability, we filter out the unsolvable tasks in advance. This process is executed using <code>GPT-4</code>, <code>Gemini Pro</code>, and <code>Claude 2</code>. Each task from the dataset is evaluated by these models to determine its solvability through majority voting. A task is classified as solvable if it provides all the necessary and valid information required for completion and can be resolved with the available tools. Human evaluation shows that these models can effectively filter out unsolvable tasks, ensuring the stability of the benchmark.
+          </p>
+          <table class="tg-fixed" style="width: 90%">
+            <thead>
+            <tr>
+              <th class="tg-yj5y"></th>
+              <th class="tg-v0hj">I1 Instruction</th>
+              <th class="tg-v0hj">I1 Category</th>
+              <th class="tg-v0hj">I1 Tool</th>
+              <th class="tg-v0hj">I2 Instruction</th>
+              <th class="tg-v0hj">I2 Category</th>
+              <th class="tg-v0hj">I3 Instruction</th>
+              <th class="tg-v0hj">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tg-fymr">Full</td>
+              <td class="tg-c3ow">200</td>
+              <td class="tg-c3ow">200</td>
+              <td class="tg-c3ow">200</td>
+              <td class="tg-c3ow">200</td>
+              <td class="tg-c3ow">200</td>
+              <td class="tg-c3ow">100</td>
+              <td class="tg-c3ow">1100</td>
+            </tr>
+            <tr>
+              <td class="tg-fymr">Solvable</td>
+              <td class="tg-c3ow">163</td>
+              <td class="tg-c3ow">153</td>
+              <td class="tg-c3ow">158</td>
+              <td class="tg-c3ow">106</td>
+              <td class="tg-c3ow">124</td>
+              <td class="tg-c3ow">61</td>
+              <td class="tg-c3ow">765</td>
+            </tr>
+            </tbody>
+          </table>
+          <p style="text-align: center;"> <i><b>Table 1:</b> Summary of Task Statistics before and after filtration</i></p>
+
+
+
+          <p>
+            <strong>Metrics (SoPR and SoWR).</strong>  Due to the limitation of <code>gpt-3.5-turbo-16k</code> in tool learning, we uniformly adopt <code>gpt-4-turbo-preview</code> as the automatic evaluator.
+            SoPR is in essence PR with all tasks solvable and only assesses the answers using the same prompt in ToolBench. The evaluator assigns outcomes of answers categorised as Solved, Unsolved, or Unsure, which respectively contribute scores of 1, 0.5, and 0 to the overall SoPR calculation.
+            As for SoWR, when one is solved and the other is unsolved, the solved one wins.
+            Under other circumstances, <code>gpt-4-turbo-preview</code> will be used to make a win-lose decision.
+
+          </p>
+        </div>
+
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4">Stability of Our System</h3>
+          We randomly select some tools and manually make these tools not available during the running time (see our paper for detailed configurations). Compared to the the real API system (Figure 3), the results run on our system (Figure 4) are much more stable. Even when 50% of APIs are not available, changes in performance are still not significant, which is explainable within the range of variance.
+
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <figure>
+                <img src="./static/images/real_solving_scores.jpg" alt="fig1" style="width: 70%; height: auto;">
+                <figcaption><b>Figure 3</b>: SoPR change when manually making APIs down with real online API system on I1 Instruction.</figcaption>
+              </figure>
+            </div>
+            <div class="column is-half">
+              <figure>
+                <img src="./static/images/virtual_solving_scores.jpg" alt="fig1" style="width: 80%; height: auto;">
+                <figcaption><b>Figure 4</b>: SoPR change when manually making APIs down with our virtual online API system.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Leaderboard</h2>
+        <div class="content has-text-justified">
+
+        <table id="tg-mXKUT" class="tg">
+          <thead>
+            <tr>
+              <th class="tg-p152">Method</th>
+              <th class="tg-7pxk">I1 Instruction</th>
+              <th class="tg-7pxk">I1 Category</th>
+              <th class="tg-7pxk">I1 Tool</th>
+              <th class="tg-7pxk">I2 Category</th>
+              <th class="tg-7pxk">I2 Instruction</th>
+              <th class="tg-7pxk">I3 Instruction</th>
+              <th class="tg-7pxk">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-i0fy">GPT-3.5-Turbo-0613  (CoT)</td>
+              <td class="tg-ubgs">55.9±1.0</td>
+              <td class="tg-ubgs">50.8±0.8</td>
+              <td class="tg-ubgs">55.9±1.0</td>
+              <td class="tg-ubgs">44.1±0.8</td>
+              <td class="tg-ubgs">36.2±0.4</td>
+              <td class="tg-ubgs">51.4±1.5</td>
+              <td class="tg-ubgs">49.1±1.0</td>
+            </tr>
+            <tr>
+              <td class="tg-i0fy">GPT-3.5-Turbo-0613 (DFS)</td>
+              <td class="tg-ubgs">66.4±1.5</td>
+              <td class="tg-ubgs">64.3±1.0</td>
+              <td class="tg-ubgs">67.2±2.4</td>
+              <td class="tg-ubgs">67.7±0.8</td>
+              <td class="tg-ubgs">61.5±1.0</td>
+              <td class="tg-ubgs">81.4±1.5</td>
+              <td class="tg-ubgs">68.1±1.4</td>
+            </tr>
+            <tr>
+              <td class="tg-i0fy">GPT-4-0613 (CoT)</td>
+              <td class="tg-ubgs">50.7±0.4</td>
+              <td class="tg-ubgs">57.1±0.3</td>
+              <td class="tg-ubgs">51.9±0.3</td>
+              <td class="tg-ubgs">55.0±1.1</td>
+              <td class="tg-ubgs">61.6±0.8</td>
+              <td class="tg-ubgs">56.3±0.8</td>
+              <td class="tg-ubgs">55.4±0.6</td>
+            </tr>
+            <tr>
+              <td class="tg-i0fy">GPT-4-0613 (DFS)</td>
+              <td class="tg-ubgs">65.5±1.1</td>
+              <td class="tg-ubgs">62.0±1.7</td>
+              <td class="tg-ubgs">72.1±1.6</td>
+              <td class="tg-xu57">70.8±1.3</td>
+              <td class="tg-xu57">73.1±1.4</td>
+              <td class="tg-ubgs">74.9±1.5</td>
+              <td class="tg-ubgs">69.7±1.4</td>
+            </tr>
+            <tr>
+              <td class="tg-i0fy">ToolLLaMA v2 (CoT)</td>
+              <td class="tg-ubgs">37.2±0.1</td>
+              <td class="tg-ubgs">42.3±0.4</td>
+              <td class="tg-ubgs">43.0±0.5</td>
+              <td class="tg-ubgs">37.4±0.4</td>
+              <td class="tg-ubgs">33.6±1.2</td>
+              <td class="tg-ubgs">39.6±1.0</td>
+              <td class="tg-ubgs">38.9±0.6</td>
+            </tr>
+            <tr>
+              <td class="tg-i0fy">ToolLLaMA v2 (DFS)</td>
+              <td class="tg-ubgs">59.8±1.5</td>
+              <td class="tg-ubgs">59.5±1.4</td>
+              <td class="tg-ubgs">65.7±1.1</td>
+              <td class="tg-ubgs">56.5±0.3</td>
+              <td class="tg-ubgs">47.6±0.4</td>
+              <td class="tg-ubgs">62.8±1.9</td>
+              <td class="tg-ubgs">58.7±1.1</td>
+            </tr>
+            <tr>
+              <td class="tg-835b">GPT-3.5-Turbo-1106 (CoT)</td>
+              <td class="tg-z9ml">51.3±0.6</td>
+              <td class="tg-z9ml">48.8±0.3</td>
+              <td class="tg-z9ml">59.9±0.8</td>
+              <td class="tg-z9ml">50.8±0.7</td>
+              <td class="tg-z9ml">43.2±0.8</td>
+              <td class="tg-z9ml">58.5±0.8</td>
+              <td class="tg-z9ml">52.1±0.7</td>
+            </tr>
+            <tr>
+              <td class="tg-835b">GPT-3.5-Turbo-1106 (DFS)</td>
+              <td class="tg-z9ml">67.8±0.9</td>
+              <td class="tg-z9ml">67.2±0.3</td>
+              <td class="tg-2sb0">72.9±0.7</td>
+              <td class="tg-z9ml">63.2±1.0</td>
+              <td class="tg-z9ml">70.9±0.4</td>
+              <td class="tg-z9ml">77.6±0.8</td>
+              <td class="tg-z9ml">69.9±0.7</td>
+            </tr>
+            <tr>
+              <td class="tg-835b">GPT-4-Turbo-Preview (CoT)</td>
+              <td class="tg-z9ml">63.1±1.0</td>
+              <td class="tg-z9ml">64.5±0.5</td>
+              <td class="tg-z9ml">55.3±0.3</td>
+              <td class="tg-z9ml">63.0±0.8</td>
+              <td class="tg-z9ml">57.3±0.8</td>
+              <td class="tg-z9ml">61.7±0.8</td>
+              <td class="tg-z9ml">60.8±0.7</td>
+            </tr>
+            <tr>
+              <td class="tg-835b">GPT-4-Turbo-Preview (DFS)</td>
+              <td class="tg-2sb0">70.8±1.0</td>
+              <td class="tg-2sb0">71.1±0.7</td>
+              <td class="tg-z9ml">70.4±1.2</td>
+              <td class="tg-z9ml">70.4±1.3</td>
+              <td class="tg-z9ml">71.7±0.4</td>
+              <td class="tg-2sb0">84.7±1.7</td>
+              <td class="tg-2sb0">73.2±1.1</td>
+            </tr>
+          </tbody>
+</table>
+          <p style="text-align: center;"> <i><b>Table 2:</b> Solvable Pass Rate scores. In this experiment, we run all models once, evaluate three times and take the average results.</i></p>
+
+        <script charset="utf-8">var TGSort=window.TGSort||function(n){"use strict";function r(n){return n?n.length:0}function t(n,t,e,o=0){for(e=r(n);o<e;++o)t(n[o],o)}function e(n){return n.split("").reverse().join("")}function o(n){var e=n[0];return t(n,function(n){for(;!n.startsWith(e);)e=e.substring(0,r(e)-1)}),r(e)}function u(n,r,e=[]){return t(n,function(n){r(n)&&e.push(n)}),e}var a=parseFloat;function i(n,r){return function(t){var e="";return t.replace(n,function(n,t,o){return e=t.replace(r,"")+"."+(o||"").substring(1)}),a(e)}}var s=i(/^(?:\s*)([+-]?(?:\d+)(?:,\d{3})*)(\.\d*)?$/g,/,/g),c=i(/^(?:\s*)([+-]?(?:\d+)(?:\.\d{3})*)(,\d*)?$/g,/\./g);function f(n){var t=a(n);return!isNaN(t)&&r(""+t)+1>=r(n)?t:NaN}function d(n){var e=[],o=n;return t([f,s,c],function(u){var a=[],i=[];t(n,function(n,r){r=u(n),a.push(r),r||i.push(n)}),r(i)<r(o)&&(o=i,e=a)}),r(u(o,function(n){return n==o[0]}))==r(o)?e:[]}function v(n){if("TABLE"==n.nodeName){for(var a=function(r){var e,o,u=[],a=[];return function n(r,e){e(r),t(r.childNodes,function(r){n(r,e)})}(n,function(n){"TR"==(o=n.nodeName)?(e=[],u.push(e),a.push(n)):"TD"!=o&&"TH"!=o||e.push(n)}),[u,a]}(),i=a[0],s=a[1],c=r(i),f=c>1&&r(i[0])<r(i[1])?1:0,v=f+1,p=i[f],h=r(p),l=[],g=[],N=[],m=v;m<c;++m){for(var T=0;T<h;++T){r(g)<h&&g.push([]);var C=i[m][T],L=C.textContent||C.innerText||"";g[T].push(L.trim())}N.push(m-v)}t(p,function(n,t){l[t]=0;var a=n.classList;a.add("tg-sort-header"),n.addEventListener("click",function(){var n=l[t];!function(){for(var n=0;n<h;++n){var r=p[n].classList;r.remove("tg-sort-asc"),r.remove("tg-sort-desc"),l[n]=0}}(),(n=1==n?-1:+!n)&&a.add(n>0?"tg-sort-asc":"tg-sort-desc"),l[t]=n;var i,f=g[t],m=function(r,t){return n*f[r].localeCompare(f[t])||n*(r-t)},T=function(n){var t=d(n);if(!r(t)){var u=o(n),a=o(n.map(e));t=d(n.map(function(n){return n.substring(u,r(n)-a)}))}return t}(f);(r(T)||r(T=r(u(i=f.map(Date.parse),isNaN))?[]:i))&&(m=function(r,t){var e=T[r],o=T[t],u=isNaN(e),a=isNaN(o);return u&&a?0:u?-n:a?n:e>o?n:e<o?-n:n*(r-t)});var C,L=N.slice();L.sort(m);for(var E=v;E<c;++E)(C=s[E].parentNode).removeChild(s[E]);for(E=v;E<c;++E)C.appendChild(s[v+L[E-v]])})})}}n.addEventListener("DOMContentLoaded",function(){for(var t=n.getElementsByClassName("tg"),e=0;e<r(t);++e)try{v(t[e])}catch(n){}})}(document)</script>
+
+        </div>
+
+
+        <div class="content has-text-justified">
+          <table id="tg-M4Xrh" class="tg">
+            <thead>
+            <tr>
+              <th class="tg-8hjb">Method</th>
+              <th class="tg-0vaj">I1 Instruction</th>
+              <th class="tg-0vaj">I1 Category</th>
+              <th class="tg-0vaj">I1 Tool</th>
+              <th class="tg-0vaj">I2 Category</th>
+              <th class="tg-0vaj">I2 Instruction</th>
+              <th class="tg-0vaj">I3 Instruction</th>
+              <th class="tg-0vaj">Average</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tg-3p6l">GPT-3.5-Turbo-0613 (DFS)</td>
+              <td class="tg-orlh">57.7</td>
+              <td class="tg-orlh">60.8</td>
+              <td class="tg-orlh">61.4</td>
+              <td class="tg-orlh">66.1</td>
+              <td class="tg-orlh">63.2</td>
+              <td class="tg-orlh">70.5</td>
+              <td class="tg-orlh">63.3</td>
+            </tr>
+            <tr>
+              <td class="tg-3p6l">GPT-4-0613 (CoT)</td>
+              <td class="tg-orlh">50.3</td>
+              <td class="tg-orlh">54.2</td>
+              <td class="tg-orlh">50.6</td>
+              <td class="tg-orlh">50.0</td>
+              <td class="tg-orlh">64.2</td>
+              <td class="tg-orlh">55.7</td>
+              <td class="tg-orlh">54.2</td>
+            </tr>
+            <tr>
+              <td class="tg-3p6l">GPT-4-0613 (DFS)</td>
+              <td class="tg-orlh">57.1</td>
+              <td class="tg-orlh">60.1</td>
+              <td class="tg-orlh">57.0</td>
+              <td class="tg-orlh">64.5</td>
+              <td class="tg-orlh">74.5</td>
+              <td class="tg-orlh">72.1</td>
+              <td class="tg-orlh">64.2</td>
+            </tr>
+            <tr>
+              <td class="tg-3p6l">ToolLLaMA v2 (CoT)</td>
+              <td class="tg-orlh">35.0</td>
+              <td class="tg-orlh">30.7</td>
+              <td class="tg-orlh">37.3</td>
+              <td class="tg-orlh">31.5</td>
+              <td class="tg-orlh">36.8</td>
+              <td class="tg-orlh">23.0</td>
+              <td class="tg-orlh">32.4</td>
+            </tr>
+            <tr>
+              <td class="tg-3p6l">ToolLLaMA v2 (DFS)</td>
+              <td class="tg-orlh">43.6</td>
+              <td class="tg-orlh">45.1</td>
+              <td class="tg-orlh">38.6</td>
+              <td class="tg-orlh">42.7</td>
+              <td class="tg-orlh">53.8</td>
+              <td class="tg-orlh">45.9</td>
+              <td class="tg-orlh">44.9</td>
+            </tr>
+            <tr>
+              <td class="tg-0ez0">GPT-3.5-Turbo-1106 (CoT)</td>
+              <td class="tg-byzq">46.6</td>
+              <td class="tg-byzq">45.1</td>
+              <td class="tg-byzq">48.1</td>
+              <td class="tg-byzq">44.4</td>
+              <td class="tg-byzq">37.7</td>
+              <td class="tg-byzq">52.5</td>
+              <td class="tg-byzq">45.7</td>
+            </tr>
+            <tr>
+              <td class="tg-0ez0">GPT-3.5-Turbo-1106 (DFS)</td>
+              <td class="tg-byzq">56.4</td>
+              <td class="tg-byzq">54.2</td>
+              <td class="tg-byzq">51.9</td>
+              <td class="tg-byzq">54.0</td>
+              <td class="tg-byzq">62.3</td>
+              <td class="tg-byzq">72.1</td>
+              <td class="tg-byzq">58.5</td>
+            </tr>
+            <tr>
+              <td class="tg-0ez0">GPT-4-Turbo-Preview (CoT)</td>
+              <td class="tg-byzq">68.7</td>
+              <td class="tg-byzq">71.9</td>
+              <td class="tg-byzq">58.2</td>
+              <td class="tg-byzq">71.0</td>
+              <td class="tg-byzq">76.4</td>
+              <td class="tg-byzq">73.8</td>
+              <td class="tg-byzq">70.0</td>
+            </tr>
+            <tr>
+              <td class="tg-0ez0">GPT-4-Turbo-Preview (DFS)</td>
+              <td class="tg-onx1">66.9</td>
+              <td class="tg-onx1">73.9</td>
+              <td class="tg-onx1">68.4</td>
+              <td class="tg-onx1">72.6</td>
+              <td class="tg-onx1">78.3</td>
+              <td class="tg-onx1">77.0</td>
+              <td class="tg-onx1">72.9</td>
+            </tr>
+            </tbody>
+          </table>
+          <p style="text-align: center;"> <i><b>Table 3:</b> Solvable Win Rate scores. We run all models once against <code>GPT-3.5-Turbo-0613</code> + <code>CoT</code> and evaluate three times. We follow the ToolBench implementation to take the most frequent result for each query during evaluation.</i></p>
+
+          <script charset="utf-8">var TGSort=window.TGSort||function(n){"use strict";function r(n){return n?n.length:0}function t(n,t,e,o=0){for(e=r(n);o<e;++o)t(n[o],o)}function e(n){return n.split("").reverse().join("")}function o(n){var e=n[0];return t(n,function(n){for(;!n.startsWith(e);)e=e.substring(0,r(e)-1)}),r(e)}function u(n,r,e=[]){return t(n,function(n){r(n)&&e.push(n)}),e}var a=parseFloat;function i(n,r){return function(t){var e="";return t.replace(n,function(n,t,o){return e=t.replace(r,"")+"."+(o||"").substring(1)}),a(e)}}var s=i(/^(?:\s*)([+-]?(?:\d+)(?:,\d{3})*)(\.\d*)?$/g,/,/g),c=i(/^(?:\s*)([+-]?(?:\d+)(?:\.\d{3})*)(,\d*)?$/g,/\./g);function f(n){var t=a(n);return!isNaN(t)&&r(""+t)+1>=r(n)?t:NaN}function d(n){var e=[],o=n;return t([f,s,c],function(u){var a=[],i=[];t(n,function(n,r){r=u(n),a.push(r),r||i.push(n)}),r(i)<r(o)&&(o=i,e=a)}),r(u(o,function(n){return n==o[0]}))==r(o)?e:[]}function v(n){if("TABLE"==n.nodeName){for(var a=function(r){var e,o,u=[],a=[];return function n(r,e){e(r),t(r.childNodes,function(r){n(r,e)})}(n,function(n){"TR"==(o=n.nodeName)?(e=[],u.push(e),a.push(n)):"TD"!=o&&"TH"!=o||e.push(n)}),[u,a]}(),i=a[0],s=a[1],c=r(i),f=c>1&&r(i[0])<r(i[1])?1:0,v=f+1,p=i[f],h=r(p),l=[],g=[],N=[],m=v;m<c;++m){for(var T=0;T<h;++T){r(g)<h&&g.push([]);var C=i[m][T],L=C.textContent||C.innerText||"";g[T].push(L.trim())}N.push(m-v)}t(p,function(n,t){l[t]=0;var a=n.classList;a.add("tg-sort-header"),n.addEventListener("click",function(){var n=l[t];!function(){for(var n=0;n<h;++n){var r=p[n].classList;r.remove("tg-sort-asc"),r.remove("tg-sort-desc"),l[n]=0}}(),(n=1==n?-1:+!n)&&a.add(n>0?"tg-sort-asc":"tg-sort-desc"),l[t]=n;var i,f=g[t],m=function(r,t){return n*f[r].localeCompare(f[t])||n*(r-t)},T=function(n){var t=d(n);if(!r(t)){var u=o(n),a=o(n.map(e));t=d(n.map(function(n){return n.substring(u,r(n)-a)}))}return t}(f);(r(T)||r(T=r(u(i=f.map(Date.parse),isNaN))?[]:i))&&(m=function(r,t){var e=T[r],o=T[t],u=isNaN(e),a=isNaN(o);return u&&a?0:u?-n:a?n:e>o?n:e<o?-n:n*(r-t)});var C,L=N.slice();L.sort(m);for(var E=v;E<c;++E)(C=s[E].parentNode).removeChild(s[E]);for(E=v;E<c;++E)C.appendChild(s[v+L[E-v]])})})}}n.addEventListener("DOMContentLoaded",function(){for(var t=n.getElementsByClassName("tg"),e=0;e<r(t);++e)try{v(t[e])}catch(n){}})}(document)</script>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    If you like our project, please consider cite our work as follows.
+    <pre><code>@misc{guo2024stabletoolbench,
+  title={StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models}, 
+  author={Zhicheng Guo and Sijie Cheng and Hao Wang and Shihao Liang and Yujia Qin and Peng Li and Zhiyuan Liu and Maosong Sun and Yang Liu},
+  year={2024},
+  eprint={2403.07714},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="https://arxiv.org/pdf/2403.07714.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/zhichengg/StableToolBench" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is borrowed from <a rel="nerfies" href="https://nerfies.github.io/">Nerfies</a> and licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
